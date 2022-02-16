@@ -3099,9 +3099,9 @@ MonoBehaviour:
   showPigdonTime: 10
   marathonPigdon: {fileID: 671404960}
   runnerComp: {fileID: 827495256}
-  standingRunner: {fileID: 21300000, guid: fa63f2cfbb0f07842906b38555958018, type: 3}
-  leftRunner: {fileID: 21300000, guid: 92a39be42960acf498977cfe4199bb51, type: 3}
-  rightRunner: {fileID: 21300000, guid: f8cc8fc854b11204a99e7d23b6019a38, type: 3}
+  standingRunner: {fileID: 3201737903593235757, guid: 774d9eabfdbb8264bbf756f33e788453, type: 3}
+  leftRunner: {fileID: -5891648276517714963, guid: 774d9eabfdbb8264bbf756f33e788453, type: 3}
+  rightRunner: {fileID: 8984806999004490436, guid: 774d9eabfdbb8264bbf756f33e788453, type: 3}
   roadStripesBody: {fileID: 1711033814}
   leftFootSource: {fileID: 679468915}
   rightFootSource: {fileID: 679468914}
@@ -3703,7 +3703,7 @@ Transform:
   m_GameObject: {fileID: 827495254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 502581439}
   m_RootOrder: 0
@@ -3748,7 +3748,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: fa63f2cfbb0f07842906b38555958018, type: 3}
+  m_Sprite: {fileID: 3201737903593235757, guid: 774d9eabfdbb8264bbf756f33e788453, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -89,6 +89,12 @@ public class GameSystem : MonoBehaviour
 
 
     }
+
+    void Stander()
+    {
+        runnerComp.sprite = standingRunner;
+    }
+
     //ten minute mile will be 180 steps per minute. That's .33 steps per second.
     //6 mph is 10 minute mile
     //6 mph is 6 miles per hour
@@ -99,20 +105,30 @@ public class GameSystem : MonoBehaviour
     //Footstep sounds from https://opengameart.org/content/100-cc0-sfx-2
     void handleMarathon()
     {
+        if (roadStripesBody.velocity.x >= 0)
+        {
+            Invoke("Stander", 1f);
+        } else
+        {
+            CancelInvoke("Stander");
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftArrow) && nextFootToPress == nextFoot.left)
         {
+            handleStep();
             nextFootToPress = nextFoot.right;
             runnerComp.sprite = leftRunner;
             footText.text = "Right Foot";
             leftFootSource.Play();
-            handleStep();
+            
         } else if (Input.GetKeyDown(KeyCode.RightArrow) && nextFootToPress == nextFoot.right)
         {
+            handleStep();
             nextFootToPress = nextFoot.left;
             runnerComp.sprite = rightRunner;
             footText.text = "Left Foot";
             rightFootSource.Play();
-            handleStep();
+            
         }
 
         //thanks my dude: https://answers.unity.com/questions/45676/making-a-timer-0000-minutes-and-seconds.html
@@ -124,10 +140,7 @@ public class GameSystem : MonoBehaviour
         float minutesDisplay = minutes % 60;
         float hours = Mathf.Floor(minutes / 60);
 
-        if (roadStripesBody.velocity.x >= 0)
-        {
-            runnerComp.sprite = standingRunner;
-        }
+        
 
         timeText.text = "Time: " + hours.ToString("#####00") +
             ":" + minutesDisplay.ToString("00") + ":" + seconds.ToString("00.00");
