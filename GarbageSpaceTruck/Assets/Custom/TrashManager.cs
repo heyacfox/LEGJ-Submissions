@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TrashManager : MonoBehaviour
 {
-    TMP_Text trashText;
+    public TMP_Text trashText;
     public GameObject pointer;
 
     public int trashToSpawn;
@@ -13,20 +14,16 @@ public class TrashManager : MonoBehaviour
     public GameObject trashPrefab;
 
     public List<GameObject> planets;
+    public GameObject winPanel;
 
     public void trashCollected()
     {
-        trashLeft--;
-        trashText.text = "Trash left: " + trashLeft;
-        if (trashLeft <= 0)
-        {
-            Debug.Log("You win!");
-        }
+        
     }
 
     public void Start()
     {
-        trashLeft = 0;
+        trashLeft = 1;
         for (int x = 0; x < trashToSpawn; x++)
         {
             GameObject selectedPlanet = planets[Random.Range(0, planets.Count)];
@@ -38,14 +35,28 @@ public class TrashManager : MonoBehaviour
             spawnPos.Normalize();
             spawnPos = transform.position + (spawnPos * (selectedPlanet.transform.localScale.x + randomExtraDistance));
             Instantiate(trashPrefab, spawnPos, trashPrefab.transform.rotation);
+            trashLeft++;
         }
+
+    }
+
+    public void RestartAll()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void Update()
     {
         //get all trash
         GameObject[] trashes = GameObject.FindGameObjectsWithTag("trash");
-        
+        int actualTrash = trashes.Length;
+        trashText.text = "Trash left: " + actualTrash;
+        if (actualTrash <= 0)
+        {
+            Debug.Log("You win!");
+            winPanel.SetActive(true);
+        }
+
         //find closest trash.
         if (trashes.Length > 0)
         {
