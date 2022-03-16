@@ -50,13 +50,13 @@ public class TrashManager : MonoBehaviour
         //get all trash
         GameObject[] trashes = GameObject.FindGameObjectsWithTag("trash");
         int actualTrash = trashes.Length;
-        trashText.text = "Trash left: " + actualTrash;
+        
         if (actualTrash <= 0)
         {
             Debug.Log("You win!");
             winPanel.SetActive(true);
         }
-
+        trashText.text = "Trash left: " + actualTrash;
         //find closest trash.
         if (trashes.Length > 0)
         {
@@ -73,6 +73,10 @@ public class TrashManager : MonoBehaviour
             }
 
             pointer.transform.LookAt(closestTrash.transform);
+            trashText.text = trashText.text + "\nDistance: " + distanceCheck.ToString("#.00");
+        } else
+        {
+            trashText.text = trashText.text + "\nAll Cleaned Up!";
         }
         
     }
