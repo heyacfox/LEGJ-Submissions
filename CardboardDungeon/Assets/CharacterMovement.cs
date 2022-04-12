@@ -11,10 +11,14 @@ public class CharacterMovement : MonoBehaviour
     Rigidbody myRigidbody;
     public float movementSpeed = 1f;
     public float rotateSpeed = 1f;
+    public Animator basicAnimator;
+    public float velocityMax = 10f;
+    public float animMult = 10f;
 
     private void Start()
     {
-        myRigidbody = GetComponent<Rigidbody>();   
+        myRigidbody = GetComponent<Rigidbody>();
+        basicAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +40,17 @@ public class CharacterMovement : MonoBehaviour
         } else if (Input.GetKey(RotateDown))
         {
             transform.Rotate(transform.up, rotateSpeed * Time.deltaTime);
+        }
+
+        if (myRigidbody.velocity.magnitude > 0.01f)
+        {
+            float hopSpeedTemp = (myRigidbody.velocity.magnitude / velocityMax) * 10f;
+            basicAnimator.SetBool("Hopping", true);
+            basicAnimator.SetFloat("HopSpeed", hopSpeedTemp);
+        } else
+        {
+            basicAnimator.SetFloat("HopSpeed", 1f);
+            basicAnimator.SetBool("Hopping", false);
         }
 
     }
