@@ -582,9 +582,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1757097130}
+  - {fileID: 1757097124}
   selectedCommands:
-  - {fileID: 1757097127}
+  - {fileID: 1757097123}
   variables: []
   description: 
   stepPause: 0
@@ -598,7 +598,7 @@ MonoBehaviour:
   luaBindingName: flowchart
 --- !u!114 &1757097123
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -612,7 +612,7 @@ MonoBehaviour:
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: Scene1
+    stringVal: TitleScene
   loadingImage: {fileID: 0}
   sceneNameOLD: 
 --- !u!114 &1757097124
@@ -630,7 +630,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 101
-    y: -45.5
+    y: -43.5
     width: 117
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -644,7 +644,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &1757097125
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -794,7 +794,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1757097132
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
