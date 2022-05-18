@@ -7,13 +7,20 @@ public class birdmusicer : MonoBehaviour
 {
     public TMP_Text messageText;
     public TMP_Text nameText;
+    public SpriteRenderer highlighter;
+    public musicerState curState;
+
+    public Color drummerColor = Color.yellow;
+    public Color guitarColor = Color.red;
+    public Color bassColor = Color.blue;
+    public Color leavingColor = Color.green;
     
     public string storedMessage;
     public string musicianName;
     public musicianType mType;
 
     public float writeSpeed = 0.05f;
-
+    public bool tagged = false;
     public musicianType taggedByPlayerAs;
     
 
@@ -60,6 +67,59 @@ public class birdmusicer : MonoBehaviour
         messageText.text = "";
         StopAllCoroutines();    
     }
+
+    public void enterIdle()
+    {
+        curState = musicerState.idle;
+    }
+
+    public void enterWalking()
+    {
+        curState = musicerState.walking;
+    }
+
+    public void enterLeaving()
+    {
+        curState = musicerState.leaving;
+    }
+
+    public void enterTalking()
+    {
+        curState = musicerState.talking;
+    }
+
+    public void selectBird()
+    {
+        if (!tagged)
+        {
+            highlighter.enabled = true;
+            highlighter.color = Color.white;
+        }
+    }
+
+    public void unselectBird()
+    {
+
+    }
+
+    public void setTag(musicianType type)
+    {
+        mType = type;
+        if (mType == musicianType.drummer)
+        {
+            highlighter.color = drummerColor;
+        } else if (mType == musicianType.guitarist)
+        {
+            highlighter.color = guitarColor;
+        } else if (mType == musicianType.bassist)
+        {
+            highlighter.color = bassColor;
+        }
+        highlighter.enabled = true;
+        tagged = true;
+        taggedByPlayerAs = type;
+    }
+
 }
 
 public enum musicianType
@@ -67,4 +127,12 @@ public enum musicianType
     drummer,
     guitarist,
     bassist
+}
+
+public enum musicerState
+{
+    idle,
+    walking,
+    talking,
+    leaving
 }
