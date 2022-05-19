@@ -22,6 +22,7 @@ public class birdmusicer : MonoBehaviour
     public float writeSpeed = 0.05f;
     public bool tagged = false;
     public musicianType taggedByPlayerAs;
+    public GameObject mPanel;
     
 
     public void setupMusicer(string message, string name, musicianType musicType)
@@ -54,6 +55,7 @@ public class birdmusicer : MonoBehaviour
     {
         int chars = storedMessage.Length;
         int curDisplay = 0;
+        mPanel.SetActive(true);
         while (curDisplay < chars)
         {
             messageText.text = messageText.text + storedMessage.Substring(curDisplay, 1);
@@ -65,6 +67,7 @@ public class birdmusicer : MonoBehaviour
 
     public void hideMessage()
     {
+        mPanel.SetActive(false);
         messageText.text = "";
         StopAllCoroutines();    
     }

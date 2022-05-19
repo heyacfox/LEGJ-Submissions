@@ -7,7 +7,7 @@ public class GetBandName : MonoBehaviour
 
     List<string> bandNameStart;
     List<string> bandNameDecr;
-    public void Start()
+    public void Awake()
     {
         bandNameStart = new List<string>();
         bandNameStart.Add("Stage Dolls");

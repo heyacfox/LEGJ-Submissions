@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class BandPlayLoop : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class BandPlayLoop : MonoBehaviour
     public Transform drumpos;
     public Transform guitpos;
     public Transform basspos;
+
+    public Button restartButton;
+    
 
     AudioSource bandSource;
 
@@ -63,10 +67,12 @@ public class BandPlayLoop : MonoBehaviour
             oneBand.baseObj.transform.position = new Vector2(500, 500);
             oneBand.drummerObj.transform.position = new Vector2(500, 500);
             oneBand.guitarObj.transform.position = new Vector2(500, 500);
+            yield return new WaitForSeconds(1f);
             
 
         }
 
         Debug.Log("All Done!");
+        restartButton.gameObject.SetActive(true);
     }
 }
