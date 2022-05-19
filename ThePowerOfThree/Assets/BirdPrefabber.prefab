@@ -156,8 +156,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -391,8 +391,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -409,12 +409,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
+  m_fontSize: 0.4
   m_fontSizeBase: 0.5
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 0.3
-  m_fontSizeMax: 0.5
+  m_fontSizeMax: 0.4
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageText: {fileID: 7128565128244997303}
   nameText: {fileID: 7017861726384976136}
-  highlighter: {fileID: 0}
+  highlighter: {fileID: 607052924809957340}
   curState: 0
   drummerColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   guitarColor: {r: 1, g: 0, b: 0, a: 1}

@@ -31,6 +31,7 @@ public class birdmusicer : MonoBehaviour
         musicianName = name;
         nameText.text = name;
         messageText.text = "";
+        highlighter.sprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -99,25 +100,33 @@ public class birdmusicer : MonoBehaviour
 
     public void unselectBird()
     {
+        if (!tagged)
+        {
+            highlighter.enabled = false;
+        }
+    }
 
+    public void assignToBand()
+    {
+        highlighter.color = leavingColor;
     }
 
     public void setTag(musicianType type)
     {
-        mType = type;
-        if (mType == musicianType.drummer)
+        taggedByPlayerAs = type;
+        if (taggedByPlayerAs == musicianType.drummer)
         {
             highlighter.color = drummerColor;
-        } else if (mType == musicianType.guitarist)
+        } else if (taggedByPlayerAs == musicianType.guitarist)
         {
             highlighter.color = guitarColor;
-        } else if (mType == musicianType.bassist)
+        } else if (taggedByPlayerAs == musicianType.bassist)
         {
             highlighter.color = bassColor;
         }
         highlighter.enabled = true;
         tagged = true;
-        taggedByPlayerAs = type;
+        
     }
 
 }
