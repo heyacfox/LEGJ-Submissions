@@ -23,6 +23,7 @@ public class birdmusicer : MonoBehaviour
     public bool tagged = false;
     public musicianType taggedByPlayerAs;
     public GameObject mPanel;
+    public bool playingCor;
     
 
     public void setupMusicer(string message, string name, musicianType musicType)
@@ -37,9 +38,11 @@ public class birdmusicer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !playingCor)
         {
+            playingCor = true;
             StartCoroutine("displayMessageOverTime");
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -63,10 +66,17 @@ public class birdmusicer : MonoBehaviour
             yield return new WaitForSeconds(writeSpeed);
             //beep noise
         }
+        playingCor = false;
+    }
+
+    public void updateName()
+    {
+        nameText.text = nameText.text + "\n" + mType.ToString();
     }
 
     public void hideMessage()
     {
+        playingCor = false;
         mPanel.SetActive(false);
         messageText.text = "";
         StopAllCoroutines();    

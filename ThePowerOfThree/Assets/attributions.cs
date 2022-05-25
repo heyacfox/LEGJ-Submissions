@@ -6,7 +6,7 @@ using UnityEngine;
 
 //Winter birds: https://opengameart.org/content/winter-birds
 //band names: https://www.kaggle.com/code/rtatman/are-band-names-more-surprising-than-song-titles/data?select=bandNames.csv
-//
+//Chirp: https://opengameart.org/content/peacock-chirp
 //drums: https://openclipart.org/image/400px/1017
 //guitar: https://openclipart.org/image/400px/23984
 //bass https://openclipart.org/image/400px/241584
@@ -14,6 +14,7 @@ using UnityEngine;
 //https://www.rollingstone.com/music/music-lists/100-greatest-drummers-of-all-time-77933/tomas-haake-27753/
 //https://www.rollingstone.com/music/music-lists/100-greatest-guitarists-153675/
 //https://www.rollingstone.com/music/music-lists/50-greatest-bassists-of-all-time-1003022/
+//Trees: https://opengameart.org/content/two-pixelish-tree-sprites
 
 public class attributions : MonoBehaviour
 {

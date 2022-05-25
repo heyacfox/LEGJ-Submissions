@@ -854,6 +854,7 @@ GameObject:
   - component: {fileID: 534982695}
   - component: {fileID: 534982690}
   - component: {fileID: 534982694}
+  - component: {fileID: 534982696}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -894,7 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3e0ecb2f4a954489f531bd5068fa32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fs: 20
+  fs: 40
 --- !u!212 &534982692
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1011,6 +1012,32 @@ MonoBehaviour:
   insText: {fileID: 2107959484}
   moveToSpot: {fileID: 145304019}
   bpl: {fileID: 1301149678}
+--- !u!61 &534982696
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534982689}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &574354084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,9 +1818,12 @@ MonoBehaviour:
   goodBandClips:
   - {fileID: 8300000, guid: 2c8d0ac2089a588478d9bbca95450dde, type: 3}
   - {fileID: 8300000, guid: c71adf51d50d819459f8ab10d92ad56b, type: 3}
+  - {fileID: 8300000, guid: 0e6d822b5dc57e94f9a65457a11be45b, type: 3}
+  - {fileID: 8300000, guid: 64c7b6ffd88a8594fbb864015f690104, type: 3}
   badBandClips:
-  - {fileID: 8300000, guid: e6b91de3cd7db19419bb91089dc79c22, type: 3}
-  - {fileID: 8300000, guid: e6b91de3cd7db19419bb91089dc79c22, type: 3}
+  - {fileID: 8300000, guid: e28d91bc2ad61bb4b9c48c50833be8ef, type: 3}
+  - {fileID: 8300000, guid: ce51ed8880d3fb04b93cac9cb7372a4d, type: 3}
+  - {fileID: 8300000, guid: c1bca7b8cae96134eb600077f9c31145, type: 3}
   bandListings: {fileID: 935747424}
   currBand: {fileID: 1662214468}
   drumpos: {fileID: 94099381}
@@ -3686,7 +3716,7 @@ MonoBehaviour:
 
     J, K, L to select role
 
-    Form 3 bands'
+    Form 5 bands'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

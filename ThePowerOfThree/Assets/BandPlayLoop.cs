@@ -59,6 +59,11 @@ public class BandPlayLoop : MonoBehaviour
             oneBand.drummerObj.transform.position = drumpos.transform.position;
             oneBand.guitarObj.transform.position = guitpos.transform.position;
 
+            oneBand.baseObj.GetComponent<birdmusicer>().updateName();
+            oneBand.guitarObj.GetComponent<birdmusicer>().updateName();
+            oneBand.drummerObj.GetComponent<birdmusicer>().updateName();
+
+
 
             yield return new WaitForSeconds(1f);
             bandSource.clip = clipToUse;
