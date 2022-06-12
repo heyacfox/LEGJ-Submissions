@@ -65,6 +65,7 @@ public class Draggable : MonoBehaviour
                 audioSource.panStereo = Random.Range(-0.5f, 0f);
             }
         }
+        gm.dogoblinanim();
     }
 
     IEnumerator CONSUME()

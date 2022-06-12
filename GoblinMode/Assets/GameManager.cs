@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    //Female voice? https://www.youtube.com/watch?v=idZ6ThycJWM
     public PostListSystem pls;
     public ButtonOption buttonPrefab;
     public Transform buttonParent;
@@ -69,6 +71,9 @@ public class GameManager : MonoBehaviour
     public GameObject goblinPanel;
     public GameObject middlingPanel;
 
+    public Animator influencerAnimator;
+    public Animator goblinAnimator;
+
     //gain followers based on your energy
     //also drains your energy
     public void goodAction()
@@ -77,6 +82,7 @@ public class GameManager : MonoBehaviour
             defaultFollowerGain * actionToRewardCurveBasedOnEnergy.Evaluate(currentEnergy / maxEnergy));
         currentEnergy -= energyDrainPerPost;
         goodParticles.Play();
+        influencerAnimator.SetTrigger("hap");
     }
 
     //lose followers based on low energy
@@ -86,6 +92,7 @@ public class GameManager : MonoBehaviour
         currentFollowers = Mathf.RoundToInt(currentFollowers - 
             defaultFollowerGain * actionToRewardCurveBasedOnEnergy.Evaluate(1-currentEnergy / maxEnergy));
         currentEnergy -= energyDrainPerPost;
+        influencerAnimator.SetTrigger("ang");
         badParticles.Play();
     }
 
@@ -146,6 +153,7 @@ public class GameManager : MonoBehaviour
         if (currentEnergy < 0)
         {
             currentEnergy = 0f;
+            GoToGoblinMode();
         }
     }
 
@@ -182,6 +190,12 @@ public class GameManager : MonoBehaviour
     public void addEnergy()
     {
         currentEnergy += energyDrainPerPost;
+        
+    }
+
+    public void dogoblinanim()
+    {
+        goblinAnimator.SetTrigger("fueled");
     }
 
     public void GoToGoblinMode()
@@ -195,6 +209,7 @@ public class GameManager : MonoBehaviour
         }
         goblin.SetActive(true);
         influencer.SetActive(false);
+        spawnGoblinFuel();
     }
 
     public void GoToInfluencerMode()
@@ -208,6 +223,7 @@ public class GameManager : MonoBehaviour
         }
         goblin.SetActive(false);
         influencer.SetActive(true);
+        spawnButton();
     }
 
     void updateUI()
