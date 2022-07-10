@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
     public AudioSource goodMusic;
     public AudioSource badMusic;
     public AudioSource endMusic;
+    public AudioSource sounds;
 
     public GameObject influencerPanel;
     public GameObject goblinPanel;
@@ -76,6 +77,9 @@ public class GameManager : MonoBehaviour
 
     //gain followers based on your energy
     //also drains your energy
+
+    public List<AudioClip> goodSounds;
+    public List<AudioClip> ughSounds;
     public void goodAction()
     {
         currentFollowers = Mathf.RoundToInt(currentFollowers + 
@@ -83,25 +87,27 @@ public class GameManager : MonoBehaviour
         currentEnergy -= energyDrainPerPost;
         goodParticles.Play();
         influencerAnimator.SetTrigger("hap");
+        sounds.PlayOneShot(goodSounds[Random.Range(0, goodSounds.Count)]);
     }
 
     //lose followers based on low energy
     public void badAction()
     {
         //if you have a LOT of energy, you won't lose many followers
-        currentFollowers = Mathf.RoundToInt(currentFollowers - 
+        currentFollowers = 2 * Mathf.RoundToInt(currentFollowers - 
             defaultFollowerGain * actionToRewardCurveBasedOnEnergy.Evaluate(1-currentEnergy / maxEnergy));
         currentEnergy -= energyDrainPerPost;
         influencerAnimator.SetTrigger("ang");
         badParticles.Play();
+        sounds.PlayOneShot(ughSounds[Random.Range(0, ughSounds.Count)]);
     }
 
     void spawnButton()
     {
         ButtonOption bo = Instantiate(buttonPrefab, buttonParent);
-        float goodOrBad = actionToRewardCurveBasedOnEnergy.Evaluate(currentEnergy / maxEnergy);
-        float buttoncheck = Random.Range(0, goodOrBad);
-        if (buttoncheck > 0.1f)
+        //float goodOrBad = actionToRewardCurveBasedOnEnergy.Evaluate(currentEnergy / maxEnergy);
+        float buttoncheck = Random.Range(0f, 1f);
+        if (buttoncheck > 0.25f)
         {
             bo.setupButton(pls.getGoodPost(), 1);
         } else
@@ -150,7 +156,7 @@ public class GameManager : MonoBehaviour
             spawnButton();
             buttonSpawnCurr = 0f;
         }
-        if (currentEnergy < 0)
+        if (currentEnergy <= 0)
         {
             currentEnergy = 0f;
             GoToGoblinMode();
@@ -200,6 +206,8 @@ public class GameManager : MonoBehaviour
 
     public void GoToGoblinMode()
     {
+        badMusic.volume = 1;
+        goodMusic.volume = 0;
         goblinButton.interactable = false;
         currMode = mode.goblinMode;
         background.color = Color.black;
@@ -214,6 +222,8 @@ public class GameManager : MonoBehaviour
 
     public void GoToInfluencerMode()
     {
+        goodMusic.volume = 1;
+        badMusic.volume = 0;
         goblinButton.interactable = true;
         currMode = mode.influencerMode;
         background.color = Color.white;
@@ -246,6 +256,9 @@ public class GameManager : MonoBehaviour
 
     public void endGame()
     {
+        goodMusic.volume = 0;
+        badMusic.volume = 0;
+        endMusic.volume = 1;
         CancelInvoke();
         currMode = mode.endMode;
         if (playerAge >= maxAge)

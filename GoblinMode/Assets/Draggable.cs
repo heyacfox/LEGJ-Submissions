@@ -64,6 +64,7 @@ public class Draggable : MonoBehaviour
             {
                 audioSource.panStereo = Random.Range(-0.5f, 0f);
             }
+            audioSource.Play();
         }
         gm.dogoblinanim();
     }
